@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static "css/style.css" %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static "image/icon.png" %}" />
+    <title>Наш приют</title>
+</head>
+<header>
+    <img src="{% static "image/icon.png" %}" alt="image" width="50" height="50" class="io"/>
+    <h2>Наши подопечные</h2>
+    <div class="dropdown">
+        <button class="dropbtn">
+            <div class="account">
+                <img src="/static/image/Avatar.png" alt="Avatar" width="40" height="40" class="io"/>
+                <h4><a href="/account/my/">{{ UserName }}</a></h4>
+            </div>
+        </button>
+        <div class="dropdown-content">
+            <a href="/main/">Главная</a>
+            <a href="/report/">Сообщить о находке</a>
+            <a href="/pet/">Наши подопечные</a>
+            <a href="/account/exit/">Выход</a>
+        </div>
+    </div>
+</header>
+<body>
+    <div class="main">
+        <button><a href="/pet/back/{{ PetInd }}/">
+            <img src="{% static "image/back.png" %}" alt="image" width="50" height="50" class="io"/>
+        </a></button>
+
+        <div class="pet">
+            <img src="/static/image/pets/pet_{{ NumPet }}_1.png" alt="Фото питамца" height="100">
+            <img src="/static/image/pets/pet_{{ NumPet }}_2.png" alt="Фото питамца" height="100">
+            <h3>{{ Name }}</h3>
+            <h6>{{ What }}</h6>
+            <p>{{ KRTKO}}</p>
+            <a href="/pet/wish/{{ NumPet }}/"><button>Пожертвовать</button></a>
+            <a href="/pet/forum/{{ NumPet }}/"><button>Обсудить</button></a>
+            <a href="/pet/take/{{ NumPet }}/"><button>Взять себе</button></a>
+        </div>
+        <button><a href="/pet/next/{{ PetInd }}/">
+            <img src="{% static "image/forward.png" %}" alt="image" width="50" height="50" class="io"/>
+        </a></button>
+    </div>
+</body>
+<footer>
+    <div class="programm">
+        <small>Copyright © 2024 | Сайт для приюта | The Bug Busters</small><br>
+        <small>The Bug Busters | Бобылев Игорь | Владислав Добрынин | Заборский Владимир | Ерин Кирилл</small><br>
+        <small>Made Bakend & Frontend | Владислав Добрынин</small>
+    </div>
+</footer>
+</html>

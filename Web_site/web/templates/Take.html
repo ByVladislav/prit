@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static "image/icon.png" %}" />
+    <link rel="stylesheet" href="{% static "css/style.css" %}" />
+    <title>Питомцы</title>
+</head>
+<header>
+    <img src="{% static "image/icon.png" %}" alt="image" width="50" height="50" class="io"/>
+    <h2>Взять - {{ Name }}</h2>
+    <div class="dropdown">
+        <button class="dropbtn">
+            <div class="account">
+                <img src="/static/image/Avatar.png" alt="Avatar" width="40" height="40" class="io"/>
+                <h4><a href="/account/my/">{{ UserName }}</a></h4>
+            </div>
+        </button>
+        <div class="dropdown-content">
+            <a href="/main/">Главная</a>
+            <a href="/report/">Сообщить о находке</a>
+            <a href="/pet/">Наши подопечные</a>
+            <a href="/account/exit/">Выход</a>
+        </div>
+    </div>
+</header>
+<body>
+    <form method="post" action="/pet/take/{{ NumPet }}/">
+        {% csrf_token %}
+        <input type="text" id="story" placeholder="*ФИО" name="Fio"><br>
+        <input type="text" id="story" placeholder="*Ваш статус" name="Statys"><br><hr>
+        <input type="text" id="story" placeholder="*Место жительства" name="Home"><br>
+        <input type="text" id="story" placeholder="*Место работы" name="Work"><br><hr>
+        <input type="text" id="story" placeholder="Увлечения" name="Dosyg"><br>
+        <input type="text" id="story" placeholder="Аллергии" name="Allegrik"><br><hr>
+        <input type="number" id="story" placeholder="Возраст" name="Years"><br>
+        <input type="submit" value="Оставить заявку">
+    </form>
+</body>
+<footer>
+    <div class="programm">
+        <small>Copyright © 2024 | Сайт для приюта | The Bug Busters</small><br>
+        <small>The Bug Busters | Бобылев Игорь | Владислав Добрынин | Заборский Владимир | Ерин Кирилл</small><br>
+        <small>Made Bakend & Frontend | Владислав Добрынин</small>
+    </div>
+</footer>
+</html>

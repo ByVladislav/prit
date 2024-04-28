@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static "image/icon.png" %}" />
+    <link rel="stylesheet" href="{% static "css/style.css" %}" />
+    <title>Форум</title>
+</head>
+<header>
+    <img src="{% static "image/icon.png" %}" alt="image" width="50" height="50" class="io"/>
+    <h2>{{ Name }}</h2>
+    <div class="dropdown">
+        <button class="dropbtn">
+            <div class="account">
+                <img src="/static/image/Avatar.png" alt="Avatar" width="40" height="40" class="io"/>
+                <h4><a href="/account/my/">{{ UserName }}</a></h4>
+            </div>
+        </button>
+        <div class="dropdown-content">
+            <a href="/main/">Главная</a>
+            <a href="/report/">Сообщить о находке</a>
+            <a href="/pet/">Наши подопечные</a>
+            <a href="/account/exit/">Выход</a>
+        </div>
+    </div>
+</header>
+<body>
+    <form method="post" action="/pet/forum/{{ NumPet }}/">
+        {% csrf_token %}
+        <input type="text" id="forum" placeholder="Сообщение" name="Mess">
+        <input type="submit" value="Отправить">
+    </form>
+    {% include 'call.html' %}
+</body>
+<footer>
+    <div class="programm">
+        <small>Copyright © 2024 | Сайт для приюта | The Bug Busters</small><br>
+        <small>The Bug Busters | Бобылев Игорь | Владислав Добрынин | Заборский Владимир | Ерин Кирилл</small><br>
+        <small>Made Bakend & Frontend | Владислав Добрынин</small>
+    </div>
+</footer>
+</html>
